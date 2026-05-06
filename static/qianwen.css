@@ -1,0 +1,334 @@
+/* ═══ 签文图片样式 — 古风宣纸 + 轻信息卡 ═══ */
+
+:root {
+  --bg:      #FBF5E8;
+  --card:    #FFFDF5;
+  --text:    #3D2B1F;
+  --sub:     #7B6B5F;
+  --accent:  #B8402C;
+  --border:  #D4C5A0;
+  --div:     #E5D8C0;
+  --shadow:  #E8E0D5;
+  --grn:     #4A8C3F;
+  --ylw:     #D4942B;
+  --red:     #C0392B;
+  --tbg:     #EDE5D5;
+
+  --w:       640px;
+  --p:       36px;
+  --cw:      calc(var(--w) - 2 * var(--p));
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: var(--w);
+  margin: 0 auto;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  padding: 0 var(--p);
+}
+
+/* ── 装饰线 ── */
+.deco-line { text-align: center; line-height: 0; }
+.deco-line.top    { margin-bottom: 16px; }
+.deco-line.bottom { margin-top: 16px; }
+.deco-line hr { border: none; margin: 0 auto; }
+.deco-line hr:nth-child(1) { width: calc(var(--cw) - 60px); height: 2px; background: var(--accent); }
+.deco-line hr:nth-child(2) { width: calc(var(--cw) - 60px); height: 1px; background: var(--border); margin-top: 2px; }
+
+/* ── 页头 ── */
+header { text-align: center; padding: 28px 0 0 0; }
+header h1 {
+  font-family: "Noto Serif CJK SC", "Songti SC", "STSong", "Kaiti SC", serif;
+  font-size: 44px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  margin-bottom: 6px;
+}
+header .date {
+  font-size: 15px;
+  color: var(--sub);
+  margin-bottom: 8px;
+}
+
+/* ── section 标题 ── */
+.section-title {
+  display: flex; align-items: center; gap: 8px;
+  margin: 20px 0 10px var(--p);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+}
+.section-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px; height: 20px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+/* ── 卡片 ── */
+.card {
+  margin: 0 var(--p);
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.card-light {
+  margin: 0 var(--p);
+  padding: 12px 16px;
+  background: var(--card);
+  border: 1px solid var(--div);
+  border-radius: 8px;
+}
+
+/* ── 卦象主卡片 ── */
+.hex-card {
+  margin: 22px var(--p);
+  padding: 20px 0 12px 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px var(--shadow);
+  text-align: center;
+}
+
+.hex-card.single { padding: 24px 0 16px 0; }
+.hex-card.multi  { padding: 16px 0 12px 0; }
+
+.hex-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+}
+.hex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+}
+.hex-label {
+  font-size: 13px;
+  color: var(--sub);
+  margin-bottom: 4px;
+}
+.hex-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 6px;
+}
+.hex-arrow {
+  font-size: 32px;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.palace-info {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--sub);
+}
+
+/* ── 手绘六爻 ── */
+.hexagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+}
+.hex-line {
+  position: relative;
+  width: 72px;
+  height: 8px;
+}
+.hex-line.yang .bar {
+  display: block;
+  width: 100%; height: 100%;
+  border-radius: 4px;
+  background: var(--text);
+}
+.hex-line.yin {
+  display: flex;
+  justify-content: space-between;
+}
+.hex-line.yin .bar {
+  display: block;
+  width: 27px; height: 100%;
+  border-radius: 4px;
+  background: var(--text);
+}
+.hex-line .dot {
+  display: none;
+  position: absolute;
+  right: -16px; top: 50%;
+  transform: translateY(-50%);
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.hex-line.moving .dot { display: block; }
+.hex-line.moving.yang .bar { background: var(--accent); }
+.hex-line.moving.yin .bar { background: var(--accent); }
+
+/* ── 卦辞 ── */
+blockquote {
+  font-size: 18px;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+.brief {
+  font-size: 16px;
+  color: var(--accent);
+}
+
+/* ── 动爻 ── */
+.moving-item {
+  margin: 0 var(--p) 6px var(--p);
+  padding: 12px 16px;
+  background: var(--card);
+  border: 1px solid var(--div);
+  border-radius: 8px;
+}
+.moving-item .pos {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.moving-item .txt {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.6;
+}
+.static-note {
+  margin: 0 var(--p);
+  padding: 12px 16px;
+  color: var(--sub);
+  font-size: 15px;
+}
+
+/* ── 装卦表 ── */
+.table-wrap {
+  margin: 0 var(--p);
+  overflow: hidden;
+  border: 1px solid var(--div);
+  border-radius: 8px;
+}
+table.zhuang {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+table.zhuang th {
+  background: var(--tbg);
+  color: var(--sub);
+  font-weight: 500;
+  padding: 10px 4px;
+  text-align: center;
+}
+table.zhuang td {
+  padding: 8px 4px;
+  text-align: center;
+  color: var(--text);
+}
+table.zhuang tr:nth-child(even) td { background: #FCF9F2; }
+table.zhuang tr.moving td { background: #FDF0E0; }
+table.zhuang td.accent { color: var(--accent); font-weight: 600; }
+.table-note {
+  margin: 6px var(--p) 0 var(--p);
+  font-size: 12px;
+  color: var(--sub);
+  text-align: center;
+}
+
+/* ── 五维运势 ── */
+.score-row {
+  margin: 4px var(--p);
+  padding: 10px 16px;
+  background: var(--card);
+  border: 1px solid var(--div);
+  border-radius: 8px;
+}
+.score-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 6px;
+}
+.score-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.score-dim {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--text);
+  min-width: 48px;
+}
+.score-val {
+  font-size: 22px;
+  font-weight: 700;
+}
+.score-bar-bg {
+  height: 8px;
+  border-radius: 4px;
+  background: #E8E0D0;
+  margin-bottom: 4px;
+  overflow: hidden;
+}
+.score-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  min-width: 2px;
+}
+.score-note {
+  font-size: 13px;
+  color: var(--sub);
+}
+
+/* ── 结语 ── */
+.conclusion p {
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+/* ── 建议 ── */
+.advice p {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 4px;
+}
+
+/* ── 页脚 ── */
+footer {
+  text-align: center;
+  padding: 8px 0 30px 0;
+}
+footer .seal {
+  font-family: "Noto Serif CJK SC", "Songti SC", "STSong", "Kaiti SC", serif;
+  font-size: 26px;
+  color: var(--accent);
+  letter-spacing: 0.3em;
+  margin: 12px 0 6px 0;
+}
+footer .attr {
+  font-size: 13px;
+  color: var(--sub);
+}

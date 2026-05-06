@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>{{ css }}</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ═══ 页头 ═══ -->
+<header>
+  <div class="deco-line top">
+    <hr><hr>
+  </div>
+  <h1>今 日 一 卦</h1>
+  <p class="date">{{ date }} &nbsp; {{ sexagenary_day }}日</p>
+  <div class="deco-line bottom">
+    <hr><hr>
+  </div>
+</header>
+
+<!-- ═══ 卦象卡片 ═══ -->
+{% if is_jing %}
+<div class="hex-card single">
+  <div class="hex-col" style="margin:0 auto;">
+    {% with h=hexagrams.ben %}
+    <div class="hexagram">
+      {% for line in h.lines %}
+      <div class="hex-line {{ 'yang' if line.yang else 'yin' }}{{ ' moving' if line.moving else '' }}">
+        <span class="bar"></span>{% if line.yang %}{% else %}<span class="bar"></span>{% endif %}
+        <span class="dot"></span>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="hex-name">{{ h.name }}</p>
+    {% endwith %}
+    <p class="palace-info">{{ palace_info }}</p>
+  </div>
+</div>
+{% else %}
+<div class="hex-card multi">
+  <div class="hex-row">
+    {% for h in [hexagrams.ben, hexagrams.bian, hexagrams.hu] %}
+    <div class="hex-col">
+      <p class="hex-label">{{ h.label }}</p>
+      <div class="hexagram">
+        {% for line in h.lines %}
+        <div class="hex-line {{ 'yang' if line.yang else 'yin' }}{{ ' moving' if line.moving else '' }}">
+          <span class="bar"></span>{% if line.yang %}{% else %}<span class="bar"></span>{% endif %}
+          <span class="dot"></span>
+        </div>
+        {% endfor %}
+      </div>
+      <p class="hex-name">{{ h.name }}</p>
+    </div>
+    {% if loop.index0 == 0 %}
+    <div class="hex-arrow">→</div>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <p class="palace-info">{{ palace_info }}</p>
+</div>
+{% endif %}
+
+<!-- ═══ 卦辞 ═══ -->
+<div class="section-title">卦&ensp;辞</div>
+<div class="card">
+  <blockquote>{{ judgment }}</blockquote>
+  <p class="brief">{{ brief }}</p>
+</div>
+
+<!-- ═══ 动爻 / 静卦 ═══ -->
+{% if is_jing %}
+<div class="section-title">静&ensp;卦</div>
+<div class="static-note">本卦无动爻 · 以卦辞为断</div>
+{% else %}
+<div class="section-title">动&ensp;爻</div>
+{% for mt in moving_texts %}
+<div class="moving-item">
+  <p class="pos">{{ mt.pos }}</p>
+  <p class="txt">{{ mt.text }}</p>
+</div>
+{% endfor %}
+{% endif %}
+
+<!-- ═══ 装卦表 ═══ -->
+<div class="section-title">装&ensp;卦</div>
+<div class="table-wrap">
+<table class="zhuang">
+<thead>
+  <tr>
+    <th>爻位</th><th>阴阳</th><th>地支</th><th>五行</th><th>六亲</th><th>世应</th><th>六兽</th>
+  </tr>
+</thead>
+<tbody>
+{% for l in zhuang_lines %}
+<tr class="{{ 'moving' if l.moving else '' }}">
+  <td>{{ l.pos_name }}</td>
+  <td class="{{ 'accent' if l.moving else '' }}">
+    {% if l.moving %}
+      {{ '阳动' if l.yang else '阴动' }}
+    {% else %}
+      {{ '阳' if l.yang else '阴' }}
+    {% endif %}
+  </td>
+  <td>{{ l.branch }}</td>
+  <td>{{ l.wuxing }}</td>
+  <td>{{ l.liuqin }}</td>
+  <td class="{{ 'accent' if l.shiying in ('世','应') else '' }}">{{ l.shiying }}</td>
+  <td>{{ l.liushou }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+<p class="table-note">阳动/阴动 = 动爻 &nbsp; 世 = 自己 &nbsp; 应 = 对方/事体</p>
+
+<!-- ═══ 五维运势 ═══ -->
+<div class="section-title">五维运势</div>
+{% for s in scores %}
+<div class="score-row">
+  <div class="score-header">
+    <span class="score-dot" style="background:{{ s.color }};"></span>
+    <span class="score-dim">{{ s.dim }}</span>
+    <span class="score-val" style="color:{{ s.color }};">{{ s.score }}</span>
+  </div>
+  <div class="score-bar-bg">
+    <div class="score-bar-fill" style="width:{{ s.score }}%;background:{{ s.color }};"></div>
+  </div>
+  <p class="score-note">{{ s.note }}</p>
+</div>
+{% endfor %}
+
+<!-- ═══ 结语 ═══ -->
+<div class="section-title">结&ensp;语</div>
+<div class="card conclusion">
+  <p>{{ conclusion }}</p>
+</div>
+
+<!-- ═══ 建议 ═══ -->
+<div class="section-title">建&ensp;议</div>
+<div class="card advice">
+  <p>✅ 宜：{{ advice.dos }}</p>
+  <p>❌ 忌：{{ advice.donts }}</p>
+  <p>🎨 幸运色：{{ advice.lucky_color }} &nbsp;&nbsp;&nbsp; 🧭 幸运方位：{{ advice.lucky_direction }}</p>
+</div>
+
+<!-- ═══ 页脚 ═══ -->
+<footer>
+  <div class="deco-line top">
+    <hr><hr>
+  </div>
+  <p class="seal">签&ensp;文</p>
+  <p class="attr">六爻铜钱卦 · 赛博求签</p>
+</footer>
+
+</div>
+</body>
+</html>

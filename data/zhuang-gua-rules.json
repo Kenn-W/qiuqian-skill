@@ -1,0 +1,201 @@
+{
+  "description": "六爻装卦规则 — 八宫卦序、世应、纳甲、六亲、六兽",
+  "source": "classical-liuyao",
+
+  "bagong": {
+    "description": "八宫卦序：每宫8卦，世爻位置依序：六世→一世→二世→三世→四世→五世→游魂(四世)→归魂(三世)",
+    "palaces": {
+      "乾宫": {
+        "five_element": "金",
+        "hexagrams": [
+          {"id": 1, "name": "乾为天", "type": "八纯", "shi_position": 6},
+          {"id": 44, "name": "天风姤", "type": "一世", "shi_position": 1},
+          {"id": 33, "name": "天山遯", "type": "二世", "shi_position": 2},
+          {"id": 12, "name": "天地否", "type": "三世", "shi_position": 3},
+          {"id": 20, "name": "风地观", "type": "四世", "shi_position": 4},
+          {"id": 23, "name": "山地剝", "type": "五世", "shi_position": 5},
+          {"id": 35, "name": "火地晋", "type": "游魂", "shi_position": 4},
+          {"id": 14, "name": "火天大有","type": "归魂", "shi_position": 3}
+        ]
+      },
+      "兑宫": {
+        "five_element": "金",
+        "hexagrams": [
+          {"id": 58, "name": "兑为泽", "type": "八纯", "shi_position": 6},
+          {"id": 47, "name": "泽水困", "type": "一世", "shi_position": 1},
+          {"id": 45, "name": "泽地萃", "type": "二世", "shi_position": 2},
+          {"id": 31, "name": "泽山咸", "type": "三世", "shi_position": 3},
+          {"id": 39, "name": "水山蹇", "type": "四世", "shi_position": 4},
+          {"id": 15, "name": "地山谦", "type": "五世", "shi_position": 5},
+          {"id": 62, "name": "雷山小过","type": "游魂", "shi_position": 4},
+          {"id": 54, "name": "雷泽归妹","type": "归魂", "shi_position": 3}
+        ]
+      },
+      "离宫": {
+        "five_element": "火",
+        "hexagrams": [
+          {"id": 30, "name": "离为火", "type": "八纯", "shi_position": 6},
+          {"id": 56, "name": "火山旅", "type": "一世", "shi_position": 1},
+          {"id": 50, "name": "火风鼎", "type": "二世", "shi_position": 2},
+          {"id": 64, "name": "火水未济","type": "三世", "shi_position": 3},
+          {"id": 4, "name": "山水蒙", "type": "四世", "shi_position": 4},
+          {"id": 59, "name": "风水涣", "type": "五世", "shi_position": 5},
+          {"id": 6, "name": "天水讼", "type": "游魂", "shi_position": 4},
+          {"id": 13, "name": "天火同人","type": "归魂", "shi_position": 3}
+        ]
+      },
+      "震宫": {
+        "five_element": "木",
+        "hexagrams": [
+          {"id": 51, "name": "震为雷", "type": "八纯", "shi_position": 6},
+          {"id": 16, "name": "雷地豫", "type": "一世", "shi_position": 1},
+          {"id": 40, "name": "雷水解", "type": "二世", "shi_position": 2},
+          {"id": 32, "name": "雷风恒", "type": "三世", "shi_position": 3},
+          {"id": 46, "name": "地风升", "type": "四世", "shi_position": 4},
+          {"id": 48, "name": "水风井", "type": "五世", "shi_position": 5},
+          {"id": 28, "name": "泽风大过","type": "游魂", "shi_position": 4},
+          {"id": 17, "name": "泽雷随", "type": "归魂", "shi_position": 3}
+        ]
+      },
+      "巽宫": {
+        "five_element": "木",
+        "hexagrams": [
+          {"id": 57, "name": "巽为风", "type": "八纯", "shi_position": 6},
+          {"id": 9, "name": "风天小畜","type": "一世", "shi_position": 1},
+          {"id": 37, "name": "风火家人","type": "二世", "shi_position": 2},
+          {"id": 42, "name": "风雷益", "type": "三世", "shi_position": 3},
+          {"id": 25, "name": "天雷无妄","type": "四世", "shi_position": 4},
+          {"id": 21, "name": "火雷噬嗑","type": "五世", "shi_position": 5},
+          {"id": 27, "name": "山雷颐", "type": "游魂", "shi_position": 4},
+          {"id": 18, "name": "山风蠱", "type": "归魂", "shi_position": 3}
+        ]
+      },
+      "坎宫": {
+        "five_element": "水",
+        "hexagrams": [
+          {"id": 29, "name": "坎为水", "type": "八纯", "shi_position": 6},
+          {"id": 60, "name": "水泽节", "type": "一世", "shi_position": 1},
+          {"id": 3, "name": "水雷屯", "type": "二世", "shi_position": 2},
+          {"id": 63, "name": "水火既济","type": "三世", "shi_position": 3},
+          {"id": 49, "name": "泽火革", "type": "四世", "shi_position": 4},
+          {"id": 55, "name": "雷火丰", "type": "五世", "shi_position": 5},
+          {"id": 36, "name": "地火明夷","type": "游魂", "shi_position": 4},
+          {"id": 7, "name": "地水师", "type": "归魂", "shi_position": 3}
+        ]
+      },
+      "艮宫": {
+        "five_element": "土",
+        "hexagrams": [
+          {"id": 52, "name": "艮为山", "type": "八纯", "shi_position": 6},
+          {"id": 22, "name": "山火贲", "type": "一世", "shi_position": 1},
+          {"id": 26, "name": "山天大畜","type": "二世", "shi_position": 2},
+          {"id": 41, "name": "山泽损", "type": "三世", "shi_position": 3},
+          {"id": 38, "name": "火泽睽", "type": "四世", "shi_position": 4},
+          {"id": 10, "name": "天泽履", "type": "五世", "shi_position": 5},
+          {"id": 61, "name": "风泽中孚","type": "游魂", "shi_position": 4},
+          {"id": 53, "name": "风山渐", "type": "归魂", "shi_position": 3}
+        ]
+      },
+      "坤宫": {
+        "five_element": "土",
+        "hexagrams": [
+          {"id": 2, "name": "坤为地", "type": "八纯", "shi_position": 6},
+          {"id": 24, "name": "地雷复", "type": "一世", "shi_position": 1},
+          {"id": 19, "name": "地泽临", "type": "二世", "shi_position": 2},
+          {"id": 11, "name": "地天泰", "type": "三世", "shi_position": 3},
+          {"id": 34, "name": "雷天大壮","type": "四世", "shi_position": 4},
+          {"id": 43, "name": "泽天夬", "type": "五世", "shi_position": 5},
+          {"id": 5, "name": "水天需", "type": "游魂", "shi_position": 4},
+          {"id": 8, "name": "水地比", "type": "归魂", "shi_position": 3}
+        ]
+      }
+    }
+  },
+
+  "najia": {
+    "description": "纳甲：八宫配天干，每爻配地支",
+    "palace_stems": {
+      "乾": {"stem": "甲", "inner_stem": "甲", "outer_stem": "壬"},
+      "兑": {"stem": "丁"},
+      "离": {"stem": "己"},
+      "震": {"stem": "庚"},
+      "巽": {"stem": "辛"},
+      "坎": {"stem": "戊"},
+      "艮": {"stem": "丙"},
+      "坤": {"stem": "乙", "inner_stem": "乙", "outer_stem": "癸"}
+    },
+    "line_branches": {
+      "note": "地支从初爻到上爻，按阳卦顺行/阴卦逆行，隔位而取",
+      "阳卦顺行": "乾子寅辰午申戌, 坎寅辰午申戌子, 艮辰午申戌子寅, 震子寅辰午申戌",
+      "阴卦逆行": "坤未巳卯丑亥酉, 巽丑亥酉未巳卯, 离卯丑亥酉未巳, 兑巳卯丑亥酉未",
+      "details": {
+        "乾": ["子", "寅", "辰", "午", "申", "戌"],
+        "坎": ["寅", "辰", "午", "申", "戌", "子"],
+        "艮": ["辰", "午", "申", "戌", "子", "寅"],
+        "震": ["子", "寅", "辰", "午", "申", "戌"],
+        "坤": ["未", "巳", "卯", "丑", "亥", "酉"],
+        "巽": ["丑", "亥", "酉", "未", "巳", "卯"],
+        "离": ["卯", "丑", "亥", "酉", "未", "巳"],
+        "兑": ["巳", "卯", "丑", "亥", "酉", "未"]
+      }
+    }
+  },
+
+  "liuqin": {
+    "description": "六亲定法：卦宫五行 vs 爻地支五行",
+    "five_elements": ["木", "火", "土", "金", "水"],
+    "rules": {
+      "生我者为父母": "宫生爻 → 父母",
+      "我生者为子孙": "爻生宫 → 子孙",
+      "克我者为官鬼": "爻克宫 → 官鬼",
+      "我克者为妻财": "宫克爻 → 妻财",
+      "比和者为兄弟": "宫爻同五行 → 兄弟"
+    },
+    "di-zhi-wuxing": {
+      "寅": "木", "卯": "木",
+      "巳": "火", "午": "火",
+      "辰": "土", "戌": "土", "丑": "土", "未": "土",
+      "申": "金", "酉": "金",
+      "亥": "水", "子": "水"
+    }
+  },
+
+  "liushou": {
+    "description": "六兽（六神）：按占卦日干顺排，从初爻到上爻",
+    "order": ["青龙", "朱雀", "勾陈", "螣蛇", "白虎", "玄武"],
+    "day_start": {
+      "甲乙日": "青龙起",
+      "丙丁日": "朱雀起",
+      "戊日": "勾陈起",
+      "己日": "螣蛇起",
+      "庚辛日": "白虎起",
+      "壬癸日": "玄武起"
+    }
+  },
+
+  "yongshen": {
+    "description": "用神取法：按所问之事取对应六亲为用神",
+    "mapping": {
+      "事业/功名/考试": "官鬼",
+      "财运/生意/投资": "妻财",
+      "感情/婚姻/恋爱": "妻财（男问）或官鬼（女问），兼看应爻",
+      "健康/疾病": "世爻 + 子孙（医药）",
+      "人际关系/合作": "兄弟 + 应爻",
+      "出行/远行": "世爻 + 应爻",
+      "父母/长辈/文书": "父母",
+      "子女/晚辈/宠物": "子孙",
+      "房产/车辆/财物": "父母（不动产）或妻财（动产）"
+    }
+  },
+
+  "wang-shuai": {
+    "description": "旺衰判断：月建日辰对爻支的生克冲合决定旺度",
+    "levels": {
+      "旺": "得月建日辰生扶，当令而旺",
+      "相": "得月建日辰之气，次旺",
+      "休": "生月建日辰，泄气",
+      "囚": "克月建日辰，被困",
+      "死": "被月建日辰所克，衰弱"
+    }
+  }
+}
