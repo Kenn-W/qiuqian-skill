@@ -18,7 +18,7 @@
 例如，在支持本地 skills 目录的环境里，你可以把仓库挂载到对应目录：
 
 ```bash
-git clone https://github.com/<your-name>/claude-qiuqian-skill.git /path/to/skills/qiuqian
+git clone https://github.com/<your-name>/qiuqian-skill.git /path/to/skills/qiuqian
 ```
 
 或者已经在本地有仓库时：
