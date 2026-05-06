@@ -1,6 +1,6 @@
 # qiuqian
 
-一个面向通用 agent 的求签 skill：用六爻铜钱法起卦，自动完成识卦、装卦、动爻提取、简要断卦和五维运势评分，并可渲染为签文图片。
+求签 skill：用六爻铜钱法起卦，自动完成识卦、装卦、动爻提取、简要断卦和五维运势评分，并可渲染为签文图片。
 
 ## 它能做什么
 
@@ -19,9 +19,9 @@
 - `data/`：64 卦数据、装卦规则、索引
 - `templates/`、`static/`：HTML 模板与样式资源
 
-## 3 分钟跑起来
+安装
 
-### 1. 安装依赖
+### 1. 依赖
 
 ```bash
 pip install -r requirements.txt
@@ -30,7 +30,7 @@ python -m playwright install chromium
 
 Linux 建议额外安装 `Noto CJK` 中文字体，避免截图时回退乱码。
 
-### 2. 先跑引擎
+### 2. 运行
 
 ```bash
 python3 engine.py
@@ -121,9 +121,9 @@ python3 engine.py --lines 7,7,8,6,9,7 | python3 render_qian_html.py -o /tmp/qian
 
 你会得到一张完整签文图，适合直接发给用户。
 
-## 怎么接到 agent 里
+## 接入agent
 
-这个仓库不绑定特定框架。最简单的用法是直接运行脚本；如果你的 agent 平台支持目录式 skill / prompt / tool 定义，可以直接复用 `SKILL.md`。
+最简单的用法是直接运行脚本；如果你的 agent 平台支持目录式 skill / prompt / tool 定义，可以直接复用 `SKILL.md`。
 
 例如，在支持本地 skills 目录的环境里：
 
@@ -142,16 +142,3 @@ ln -s /absolute/path/to/qiuqian /path/to/skills/qiuqian
 
 1. 让 agent 调用 `engine.py` 生成结构化 JSON
 2. 按 `SKILL.md` 的格式约束，把 JSON 转成回复文本，或调用渲染器输出图片
-
-## 选哪种渲染器
-
-- `render_qian_html.py`：推荐。跨平台更稳，样式更自然
-- `render_qian.py`：依赖更少，但更依赖本机字体环境
-
-如果你只是要给 agent 一个“会起卦并输出文本”的能力，其实只用 `engine.py` + `SKILL.md` 就够了。
-
-## 说明
-
-- 📄 仓库采用 `MIT` 许可证
-- 🎴 主题涉及周易占卜，更适合娱乐化、文化体验或内容生成场景
-- 🧪 示例中的固定爻值适合做回归测试、演示和 prompt 调试
