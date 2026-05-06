@@ -1,29 +1,31 @@
 # qiuqian
 
-一个可公开分发的 Claude Code skill：模拟六爻铜钱起卦，完成装卦断卦，并输出带五维评分与建议的签文内容。
+一个可公开分发的通用 agent skill：模拟六爻铜钱起卦，完成装卦断卦，并输出带五维评分与建议的签文内容。
 
 ## 仓库内容
 
-- `SKILL.md`：Claude skill 定义与输出规范
+- `SKILL.md`：skill 定义与输出规范
 - `engine.py`：起卦、识卦、装卦、评分引擎
 - `render_qian_html.py`：推荐的 HTML/CSS + Playwright 签文渲染器
 - `render_qian.py`：PIL 纯 Python 渲染备选方案
 - `data/`：64 卦、装卦规则、索引数据
 - `templates/` + `static/`：HTML 模板与样式
 
-## 安装到 Claude Code
+## 安装与集成
 
-如果你想把它作为本地 skill 使用，直接把本仓库放到 Claude 的 skills 目录下：
+这个仓库本身不绑定特定 agent 框架。最简单的使用方式是直接运行脚本；如果你的 agent 平台支持基于目录的 skill / tool prompt，也可以直接复用 `SKILL.md`。
+
+例如，在支持本地 skills 目录的环境里，你可以把仓库挂载到对应目录：
 
 ```bash
-git clone https://github.com/<your-name>/qiuqian.git ~/.claude/skills/qiuqian
+git clone https://github.com/<your-name>/claude-qiuqian-skill.git /path/to/skills/qiuqian
 ```
 
 或者已经在本地有仓库时：
 
 ```bash
-mkdir -p ~/.claude/skills
-ln -s /absolute/path/to/qiuqian ~/.claude/skills/qiuqian
+mkdir -p /path/to/skills
+ln -s /absolute/path/to/qiuqian /path/to/skills/qiuqian
 ```
 
 ## 运行依赖
